@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Superhero Database</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link th:href="@{/main.css}" rel="stylesheet">
+</head>
+<body>
+<form>
+
+  <h1 th:text="${superheroPower.getSuperheroName()}"> dsfdasf</h1>
+  <table>
+    <tr th:each="power : ${superheroPower.getPowerList()}">
+      <td th:text="${power}"/>
+    </tr>
+  </table>
+
+  <a th:href="@{/kea/superhero}"><button type="button">Back</button></a>
+
+</form>
+</body>
+</html>
