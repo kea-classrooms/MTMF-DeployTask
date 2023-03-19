@@ -3,6 +3,7 @@ package com.example.superherov5.controller;
 import com.example.superherov5.dto.CityDTO;
 import com.example.superherov5.dto.CountPowerDTO;
 import com.example.superherov5.dto.SuperPowerDTO;
+import com.example.superherov5.dto.SuperheroFormDTO;
 import com.example.superherov5.model.Superhero;
 import com.example.superherov5.repositories.IRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,9 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,6 +39,21 @@ public class SuperheroController {
     public String getSuperPower(Model model, @PathVariable String superheroName){
         model.addAttribute("superheroPower", repository.getSuperPower(superheroName));
         return "powers";
+    }
+
+    @GetMapping(path = "superhero/add")
+    public String showCreateHero(Model model){
+        SuperheroFormDTO superhero = new SuperheroFormDTO();
+        model.addAttribute("superhero", superhero);
+        model.addAttribute("cities", repository.getCities());
+        model.addAttribute("powers", repository.getPowers());
+        return "createSuperhero";
+    }
+
+    @PostMapping(path = "superhero/add")
+    public String addHero(@ModelAttribute("superhero") SuperheroFormDTO superheroFormDTO){
+        repository.addSuperHero(superheroFormDTO);
+        return "redirect:/kea/superhero";
     }
 
 

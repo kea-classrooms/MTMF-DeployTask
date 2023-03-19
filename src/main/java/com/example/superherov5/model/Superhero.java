@@ -1,17 +1,22 @@
 package com.example.superherov5.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class Superhero {
     private int superheroId;
     private String superHeroName;
     private String reelName;
-    private int creationYear;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private java.sql.Date creationYear;
 
 
 
     //konstruktør
-    public Superhero(int superheroId, String superHeroName, String reelName, int creationYear){
+    public Superhero(int superheroId, String superHeroName, String reelName, java.sql.Date creationYear){
         this.superheroId = superheroId;
         this.superHeroName = superHeroName;
         this.reelName = reelName;
@@ -28,8 +33,8 @@ public class Superhero {
     }
 
 
-    public int getCreationYear() {
-        return creationYear;
+    public java.sql.Date getCreationYear() {
+        return (java.sql.Date) creationYear;
     }
 
     public int getsuperheroId(){
@@ -42,8 +47,8 @@ public class Superhero {
     public void setReelName(String newReelName) {
         this.reelName = newReelName;
     }
-    public void setCreationYear(String newCreationYear) {
-        this.creationYear = Integer.parseInt(newCreationYear);
+    public void setCreationYear(java.sql.Date newCreationYear) {
+        this.creationYear = newCreationYear;
     }
 
 
