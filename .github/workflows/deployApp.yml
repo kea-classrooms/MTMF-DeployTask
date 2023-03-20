@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'src/main/resources/sql/*.sql' 
+  workflow_dispatch:
 
 
 
