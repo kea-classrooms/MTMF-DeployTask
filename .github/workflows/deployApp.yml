@@ -1,4 +1,4 @@
-name: Java App and MySQL DB Deployment Workflow
+name: Java App and MySQL DB Deployment Workflo
 
 on:
   push:
