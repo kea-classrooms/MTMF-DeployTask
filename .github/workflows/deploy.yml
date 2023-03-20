@@ -5,7 +5,9 @@ on:
     branches:
       - main
     paths:
-      - 'src/sql/*.sql'
+      - 'src/main/resources/sql/*.sql' 
+
+
 
 jobs:
 
