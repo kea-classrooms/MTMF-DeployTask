@@ -10,7 +10,7 @@ public class Superhero {
     private int superheroId;
     private String superHeroName;
     private String reelName;
-    private String heoo;
+    private String hallo;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private java.sql.Date creationYear;
 
