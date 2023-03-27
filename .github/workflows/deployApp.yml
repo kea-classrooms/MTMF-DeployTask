@@ -3,7 +3,7 @@ name: Java App and MySQL DB Deployment Workflo
 on:
   push:
     branches:
-      - main
+      - '*/issue*' # Trigger only when a branch with 'issue' in the name is pushed
     paths:
       - 'src/main/resources/sql/*.sql' 
   workflow_dispatch:
